@@ -39,6 +39,20 @@ User query
 
 ---
 
+## Where Strands Comes In
+
+Every agent in this project is built with [Strands Agents](https://strandsagents.com), an open-source framework from AWS for building tool-calling LLM agents in Python.
+
+Strands handles the wiring between the LLM and the solver tools. Each agent is given a set of tools it is allowed to call, a system prompt that defines its role, and a structured output schema. The framework manages the tool-call loop and surfaces results via `result.structured_output`.
+
+Three patterns from this project worth studying:
+
+- **Stateless agent** — the OR Agent clears its message history before each call. Strands makes this trivial; the agent object exists but carries no session memory.
+- **Autonomous agent** — the Shock Response Agent calls `run_milp_solver` multiple times in a single invocation, choosing strategies and comparing results without external orchestration. Strands manages the loop.
+- **Tools as the contract** — `run_milp_solver`, `compare_coverage_costs`, and `load_network_data_tool` are plain Python functions decorated as Strands tools. The LLM calls them by name; Python executes them. No glue code needed.
+
+---
+
 ## Why Three Models?
 
 Every scenario produces a planning range, not a single number:
@@ -72,7 +86,7 @@ What is the best response if payload is reduced to 28 tons?
 | Layer | Technology |
 |---|---|
 | Language | Python |
-| Agent Framework | Strands Agents |
+| Agent Framework | Strands Agents (AWS open-source) |
 | LLM Provider | Anthropic (Claude) |
 | Terminal UI | Rich |
 | Optimization | Pyomo |
