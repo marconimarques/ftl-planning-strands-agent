@@ -143,21 +143,7 @@ Brazilian Portuguese is the default language. `/language en` switches to English
 
 **Excel drives the network.** Changing the files in `data/` rewires the planning network — terminals, collection points, distances, demand, costs — without touching agent prompts or solver code.
 
----
 
-## Testing
-
-Deterministic regression checks (no API key required):
-
-```powershell
-python test_review_fixes.py
-```
-
-End-to-end integration (requires `ANTHROPIC_API_KEY`):
-
-```powershell
-python test_pipeline.py
-```
 
 ---
 
