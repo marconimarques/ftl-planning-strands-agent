@@ -144,9 +144,3 @@ Brazilian Portuguese is the default language. `/language en` switches to English
 **Excel drives the network.** Changing the files in `data/` rewires the planning network — terminals, collection points, distances, demand, costs — without touching agent prompts or solver code.
 
 
-
----
-
-## License
-
-No license file is included. Add one before publishing if you want others to reuse or redistribute the code under clear terms.
