@@ -8,6 +8,10 @@ The math is handled by a MILP solver. The language is handled by agents. Neither
 
 ## The Core Idea
 
+<p align="center">
+<img src="./cli-interface.jpg" alt="Local File in Working Folder" width="950" />
+</p>
+
 A fleet planner asks:
 
 ```
